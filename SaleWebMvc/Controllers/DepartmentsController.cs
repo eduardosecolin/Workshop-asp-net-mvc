@@ -27,7 +27,7 @@ namespace SaleWebMvc.Controllers {
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (department == null) {
                 return NotFound();
             }
@@ -45,7 +45,7 @@ namespace SaleWebMvc.Controllers {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Department department) {
+        public async Task<IActionResult> Create([Bind("id,name")] Department department) {
             if (ModelState.IsValid) {
                 _context.Add(department);
                 await _context.SaveChangesAsync();
@@ -72,8 +72,8 @@ namespace SaleWebMvc.Controllers {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Department department) {
-            if (id != department.Id) {
+        public async Task<IActionResult> Edit(int id, [Bind("id,name")] Department department) {
+            if (id != department.id) {
                 return NotFound();
             }
 
@@ -83,7 +83,7 @@ namespace SaleWebMvc.Controllers {
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException) {
-                    if (!DepartmentExists(department.Id)) {
+                    if (!DepartmentExists(department.id)) {
                         return NotFound();
                     }
                     else {
@@ -102,7 +102,7 @@ namespace SaleWebMvc.Controllers {
             }
 
             var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (department == null) {
                 return NotFound();
             }
@@ -121,7 +121,7 @@ namespace SaleWebMvc.Controllers {
         }
 
         private bool DepartmentExists(int id) {
-            return _context.Department.Any(e => e.Id == id);
+            return _context.Department.Any(e => e.id == id);
         }
     }
 }

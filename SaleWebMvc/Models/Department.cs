@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SaleWebMvc.Models {
+    
+    [Table(name:"DEPARTAMENTOS")]
     public class Department {
 
-        private int id;
-        private string name;
-
-        public int Id{ get{ return id; } set{ id = value; } }
-        public string Name{ get{ return name; } set{ name = value; } }
+        [Key]
+        public int id { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string name { get; set; }
     }
 }
