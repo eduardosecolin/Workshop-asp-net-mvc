@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SaleWebMvc.Models;
+using SaleWebMvc.Data;
 
 namespace SaleWebMvc {
     public class Startup {
@@ -31,8 +32,11 @@ namespace SaleWebMvc {
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-    services.AddDbContext<SaleWebMvcContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("SaleWebMvcContext")));
+            services.AddDbContext<SaleWebMvcContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SaleWebMvcContext")));
+
+
+            services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
