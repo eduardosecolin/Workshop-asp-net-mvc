@@ -33,8 +33,7 @@ namespace SaleWebMvc.Models {
 
         }
 
-        public Seller(int id, string name, string email, double baseSalary, DateTime birthDate, Department department) {
-            this.id = id;
+        public Seller(string name, string email, double baseSalary, DateTime birthDate, Department department) {
             this.name = name;
             this.email = email;
             this.baseSalary = baseSalary;

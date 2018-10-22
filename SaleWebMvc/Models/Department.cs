@@ -23,8 +23,7 @@ namespace SaleWebMvc.Models {
 
         }
 
-        public Department(int id, string name) {
-            this.id = id;
+        public Department(string name) {
             this.name = name;
         }
 
