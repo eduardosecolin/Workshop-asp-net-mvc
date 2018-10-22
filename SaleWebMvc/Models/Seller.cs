@@ -24,8 +24,8 @@ namespace SaleWebMvc.Models {
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Column(name:"data_nascimento")]
         public DateTime birthDate { get; set; }
-
         public Department department { get; set; }
+        public int DepartmentId { get; set; }
 
         public ICollection<SalesRecord> sales = new List<SalesRecord>();
 
