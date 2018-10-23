@@ -20,7 +20,7 @@ namespace SaleWebMvc.Controllers {
         }
 
         public IActionResult Contact() {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Email para contato.";
 
             return View();
         }
